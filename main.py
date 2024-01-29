@@ -7,11 +7,13 @@ heapq.heapify(numbers)
 # поєднаємо кабелі беручі з купи кожен раз два найкоротші
 heap_length = len(numbers)
 total_cost = 0
+current_cost = 0
 while heap_length > 1:
     min_element_1 = heapq.heappop(numbers)
     min_element_2 = heapq.heappop(numbers)
-    total_cost = min_element_1 + min_element_2
-    heapq.heappush(numbers, total_cost)
+    current_cost = min_element_1 + min_element_2
+    heapq.heappush(numbers, current_cost)
+    total_cost += current_cost
     heap_length -= 1
 # вивдемо отриманий результат
 print(total_cost)
